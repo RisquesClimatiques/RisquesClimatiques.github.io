@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Changement des températures</title>
+	<link rel="stylesheet" href="leaflet.css" />
+	<script src="leaflet.js"></script>
+	<script src="SelectLayers.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
+	<link rel="stylesheet" href="leaflet.zoomhome.css"/>
+    <script src="leaflet.zoomhome.min.js"></script>
+
+	<style>
+		#map1 {
+			width: 1340px;
+			height: 640px;
+		}
+		.info {
+		    padding: 6px 8px;
+		    font: 14px/16px Arial, Helvetica, sans-serif;
+		    background: white;
+		    background: rgba(255,255,255,0.8);
+		    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+		    border-radius: 5px;
+		}
+		.info h4 {
+		    margin: 0 0 5px;
+		    color: #777;
+		}
+		.legend {
+    line-height: 18px;
+    color: #555;
+}
+.legend i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.7;
+}
+	</style>
+
+	
+</head>
+<body>
+
+<div id='map1'></div>
+
+<script type="text/javascript" src="regionsfinal.js"></script>
+
+<script type="text/javascript">
+
+
+
+	var map1 = L.map('map1').setView([30, 10], 4);
+
+	var test1= L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw', {
+		maxZoom: 18,
+		attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+			'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+			'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+		id: 'mapbox.light'
+	}).addTo(map1);
+	
+	
+	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+	}).addTo(map1);
+
+	var zoomHome = L.Control.zoomHome();
+    zoomHome.addTo(map1);
+	
+
+	// get color depending on population density value
+	function getColor(d) {
+		return 	d < 3 ? '#fee5d9' :
+                d <= 3.5 ? '#fcae91' :
+                d <= 4 ? '#fb6a4a' :
+				d <= 4.5 ? '#de2d26' :
+				d <= 5 ? '#a50f15' :
+
+								'#252525';
+	}
+
+
+	function Monstyle(feature) {
+		return {
+			weight: 2,
+			opacity: 1,
+			color: 'white',
+			dashArray: '3',
+			fillOpacity: 0.7,
+			fillColor: getColor(feature.properties.ChangeTemp)
+		};
+	}
+	map1.on('click', function(e) {
+    alert(e.latlng); // e is an event object (MouseEvent in this case)
+});
+
+	function highlightFeature(e) {
+	    var layer = e.target;
+
+	    layer.setStyle({
+	        weight: 5,
+	        color: '#666',
+	        dashArray: '',
+	        fillOpacity: 0.7
+	    });
+
+	    if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+	        layer.bringToFront();
+	    }
+	        info.update(layer.feature.properties);
+
+	}
+
+	function resetHighlight(e) {
+    	geojson.resetStyle(e.target);
+    	    info.update();
+
+	}
+	function zoomToFeature(e) {
+    map1.fitBounds(e.target.getBounds());
+}
+	function onEachFeature(feature, layer) {
+    layer.on({
+        mouseover: highlightFeature,
+        mouseout: resetHighlight,
+        click: zoomToFeature
+    });
+}
+var legend = L.control({position: 'bottomright'});
+
+legend.onAdd = function (map1) {
+
+    var div = L.DomUtil.create('div', 'info legend'),
+        grades = [3, 3.5, 4, 4.5, 5],
+        labels = [];
+
+    // loop through our density intervals and generate a label with a colored square for each interval
+    div.innerHTML += '<h4>Taux de changement de la température en degré Celsius :</h4>';
+    for (var i = 0; i < grades.length-1; i++) {
+        div.innerHTML += 
+            '<i style="background:' + getColor(grades[i+1] ) + '"></i> ' +
+            grades[i] + (grades[i] ? '  &ndash;  ' + grades[i + 1] + '<br>' : '+');
+    }
+
+    return div;
+};
+legend.addTo(map1);
+var info = L.control();
+
+info.onAdd = function (map1) {
+    this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+    this.update();
+    return this._div;
+};
+
+// method that we will use to update the control based on feature properties passed
+info.update = function (props) {
+    this._div.innerHTML = '<h4>Prédiction du taux de changement des températures au niveau des régions du Maroc en 2070-2099</h4>' +  (props ?
+	 '<b>Région : </b>' + props.Nom_Region + '<b> <br />Taux de changement en degré Celsius </b>: ' + props.ChangeTemp +  '</sup>'
+        : "Merci de mettre le curseur sur une région pour afficher plus d'informations" + '<br />Cliquer sur un lieu pour afficher la latitude et la longitude</b>');
+};
+
+info.addTo(map1);
+
+	var geojson = L.geoJson(MA, {
+		style: Monstyle,
+	    onEachFeature: onEachFeature,
+}).addTo(map1);
+
+     
+
+   
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+onLoadData({
+"type": "FeatureCollection",
+"name": "Centroidetimer",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "GID_0": "DZA", "NAME_0": "Algerie", "JointureCO": 39.079720290381694, "start": 1388534600000.0, "end": 1419984200000.0 }, "geometry": { "type": "Point", "coordinates": [ 2.677146023823207, 28.15837386115167 ] } },
+{ "type": "Feature", "properties": { "GID_0": "EGY", "NAME_0": "Egypte", "JointureCO": 60.793649399088288, "start": 1388534600000.0, "end": 1419984200000.0 }, "geometry": { "type": "Point", "coordinates": [ 29.783659143268945, 26.569799063644123 ] } },
+{ "type": "Feature", "properties": { "GID_0": "LBY", "NAME_0": "Libye", "JointureCO": 16.011259104838697, "start": 1388534600000.0, "end": 1419984200000.0 }, "geometry": { "type": "Point", "coordinates": [ 18.0311709854588, 27.040323251356661 ] } },
+{ "type": "Feature", "properties": { "GID_0": "MAR", "NAME_0": "Maroc", "JointureCO": 16.27802491263601, "start": 1388534600000.0, "end": 1419984200000.0 }, "geometry": { "type": "Point", "coordinates": [ -8.862003100686598, 29.144215095646807 ] } },
+{ "type": "Feature", "properties": { "GID_0": "TUN", "NAME_0": "Tunisie", "JointureCO": 7.6124872365067002, "start": 1388534600000.0, "end": 1419984200000.0 }, "geometry": { "type": "Point", "coordinates": [ 9.57888691029706, 34.111070176569534 ] } },
+
+{ "type": "Feature", "properties": { "GID_0": "DZA", "NAME_0": "Algerie", "JointureCO": 41.1310111231762, "start": 1419984200000.1, "end": 1451520200000.0 }, "geometry": { "type": "Point", "coordinates": [ 2.677146023823207, 28.15837386115167 ] } },
+{ "type": "Feature", "properties": { "GID_0": "EGY", "NAME_0": "Egypte", "JointureCO": 59.8537239128137, "start": 1419984200000.1, "end": 1451520200000.0 }, "geometry": { "type": "Point", "coordinates": [ 29.783659143268945, 26.569799063644123 ] } },
+{ "type": "Feature", "properties": { "GID_0": "LBY", "NAME_0": "Libye", "JointureCO": 15.3917565034562, "start": 1419984200000.1, "end": 1451520200000.0 }, "geometry": { "type": "Point", "coordinates": [ 18.0311709854588, 27.040323251356661 ] } },
+{ "type": "Feature", "properties": { "GID_0": "MAR", "NAME_0": "Maroc", "JointureCO": 16.6560699647325, "start": 1419984200000.1, "end": 1451520200000.0 }, "geometry": { "type": "Point", "coordinates": [ -8.862003100686598, 29.144215095646807 ] } },
+{ "type": "Feature", "properties": { "GID_0": "TUN", "NAME_0": "Tunisie", "JointureCO": 7.98979807972825, "start": 1419984200000.1, "end": 1451520200000.0 }, "geometry": { "type": "Point", "coordinates": [ 9.57888691029706, 34.111070176569534 ] } },
+
+{ "type": "Feature", "properties": { "GID_0": "DZA", "NAME_0": "Algerie", "JointureCO": 40.2780111231762, "start": 1451520200000.0, "end": 1483142600000.00 }, "geometry": { "type": "Point", "coordinates": [ 2.677146023823207, 28.15837386115167 ] } },
+{ "type": "Feature", "properties": { "GID_0": "EGY", "NAME_0": "Egypte", "JointureCO": 63.6384338696628, "start": 1451520200000.0, "end": 1483142600000.00 }, "geometry": { "type": "Point", "coordinates": [ 29.783659143268945, 26.569799063644123 ] } },
+{ "type": "Feature", "properties": { "GID_0": "LBY", "NAME_0": "Libye", "JointureCO": 13.6588766728424, "start": 1451520200000.0, "end": 1483142600000.00 }, "geometry": { "type": "Point", "coordinates": [ 18.0311709854588, 27.040323251356661 ] } },
+{ "type": "Feature", "properties": { "GID_0": "MAR", "NAME_0": "Maroc", "JointureCO": 16.6570731324886, "start": 1451520200000.0, "end": 1483142600000.00 }, "geometry": { "type": "Point", "coordinates": [ -8.862003100686598, 29.144215095646807 ] } },
+{ "type": "Feature", "properties": { "GID_0": "TUN", "NAME_0": "Tunisie", "JointureCO": 7.91706958416251, "start": 1451520200000.0, "end": 1483142600000.00 }, "geometry": { "type": "Point", "coordinates": [ 9.57888691029706, 34.111070176569534 ] } }
+]
+});
