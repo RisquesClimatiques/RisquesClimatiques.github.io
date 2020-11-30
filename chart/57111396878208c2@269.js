@@ -3,10 +3,16 @@ export default function define(runtime, observer) {
   const fileAttachments = new Map([["maroc2.csv",new URL("./files/c008a500c126aa6ee399a2713af6231322b2b4c63a535a04da57aac119bfc79fd2a0df53b3067aca932606d9da26953e782d27bdd45ddb4467321bb79cd635ee",import.meta.url)]]);
   main.builtin("FileAttachment", runtime.fileAttachments(name => fileAttachments.get(name)));
   main.variable(observer()).define(["md"], function(md){return(
-md`# Bar Chart
+md`# Bar CharSUGHwfst
+
+This chart showssvddg the relative frequency of letters in the English language. This is a vertical bar chart, also known as a *column* chart. Compare to a [horizontal bar chart](/@d3/horizontal-bar-chart).`
+)});
+    
+
+/*md`# Bar Chart
 
 This chart shows the relative frequency of letters in the English language. This is a vertical bar chart, also known as a *column* chart. Compare to a [horizontal bar chart](/@d3/horizontal-bar-chart).`
-)});
+)});*/
   main.variable(observer("chart")).define("chart", ["d3","width","height","color","data","x","y","xAxis","yAxis"], function(d3,width,height,color,data,x,y,xAxis,yAxis)
 {
   const svg = d3.create("svg")
