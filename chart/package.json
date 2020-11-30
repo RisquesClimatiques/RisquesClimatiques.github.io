@@ -1,0 +1,14 @@
+{
+  "name": "57111396878208c2",
+  "main": "57111396878208c2@269.js",
+  "version": "269.0.0",
+  "homepage": "https://observablehq.com/d/57111396878208c2",
+  "author": {
+    "name": "Dina LEGMOUZ",
+    "url": "https://observablehq.com/@dinalegmouz"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4"
+  }
+}
